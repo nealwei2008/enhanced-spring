@@ -6,12 +6,12 @@
     <parent>
         <groupId>com.yoloho.enhanced.parent</groupId>
         <artifactId>enhanced-parent</artifactId>
-        <version>1.0.12</version>
+        <version>1.1.0</version>
     </parent>
     <groupId>com.yoloho.enhanced</groupId>
     <artifactId>enhanced-spring</artifactId>
     <name>enhanced-spring</name>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <dependencies>
         <!-- enhanced related -->
         <dependency>
@@ -20,16 +20,8 @@
         </dependency>
         <!-- spring -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <!-- optional spring mvc -->
         <dependency>
@@ -43,6 +35,11 @@
             <scope>provided</scope>
         </dependency>
         <!-- optional servlet -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -136,10 +133,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -164,7 +157,9 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <skip>true</skip>
+                            <!-- 禁用严格的语法检查 -->
+                            <doclint>none</doclint>
                         </configuration>
                     </execution>
                 </executions>
