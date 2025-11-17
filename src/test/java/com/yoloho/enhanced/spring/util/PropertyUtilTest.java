@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.yoloho.enhanced.spring.MySpringJUnit4ClassRunner;
-import com.yoloho.enhanced.spring.util.PropertyUtil;
 
 @ContextConfiguration(locations = { "classpath:context.xml" })
 @RunWith(MySpringJUnit4ClassRunner.class)

@@ -81,10 +81,10 @@ public class CustomExceptionHandler extends AbstractHandlerExceptionResolver {
         boolean isDetailErrorMsg = false;
         if (exception instanceof TypeMismatchException) {// wuzl类型不正确
             TypeMismatchException typeEx = (TypeMismatchException) exception;
-            msg.failure(1, String.format("Param [%s] is in wrong format", typeEx.getValue()));
+            msg.failure(String.format("Param [%s] is in wrong format", typeEx.getValue()));
         } else if (exception instanceof MissingServletRequestParameterException) {// wuzl没有必传参数
             MissingServletRequestParameterException missingEx = (MissingServletRequestParameterException) exception;
-            msg.failure(1, String.format("Param [%s] should not be empty", missingEx.getParameterName()));
+            msg.failure(String.format("Param [%s] should not be empty", missingEx.getParameterName()));
         } else if (exception instanceof org.springframework.web.multipart.MaxUploadSizeExceededException) {
             msg.failure("Upload file too large");
         } else if (exception instanceof HttpMessageNotReadableException) {
@@ -97,7 +97,7 @@ public class CustomExceptionHandler extends AbstractHandlerExceptionResolver {
                 msg.failure(ex.getCode(), "Error occurred");
             }
         } else {
-            msg.failure(1, exception.getMessage());
+            msg.failure(exception.getMessage());
             logger.error("【{}】接口异常：{}", request.getRequestURI(), exception.getMessage(), exception);
             isDetailErrorMsg = true;
         }
@@ -124,7 +124,7 @@ public class CustomExceptionHandler extends AbstractHandlerExceptionResolver {
                 if (StringUtils.isNotEmpty(normalMsgError)) {
                     response.getWriter().write(normalMsgError);
                 } else {
-                    response.getWriter().write(msg.getErrdesc());
+                    response.getWriter().write(msg.getMsg());
                 }
                 response.flushBuffer();
             } catch (Exception e) {

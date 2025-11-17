@@ -31,7 +31,7 @@ import com.yoloho.enhanced.spring.controller.CustomArgumentConverterTestControll
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath:context.xml", "classpath:dispatcher-servlet.xml" })
 public class CustomArgumentTest {
-	
+    
 	@Autowired
 	CustomArgumentConverterTestController controller;
 	private MockMvc mockMvc;
@@ -60,6 +60,7 @@ public class CustomArgumentTest {
 			Assert.assertEquals(0, commonParams.getLevel());
 			Assert.assertEquals("test", commonParams.getName());
 		} catch (Exception e) {
+		    e.printStackTrace();
 			Assert.fail();
 		}
 		

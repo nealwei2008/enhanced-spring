@@ -1,18 +1,17 @@
 package com.yoloho.enhanced.spring.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import com.yoloho.enhanced.common.support.MsgBean;
+import com.yoloho.enhanced.spring.support.MvcArgument;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yoloho.enhanced.common.support.MsgBean;
-import com.yoloho.enhanced.spring.support.MvcArgument;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/test")
 public class CustomArgumentConverterTestController {
-    @SuppressWarnings("unused")
     public static class CommonParams implements MvcArgument {
         private int id;
         private int level;

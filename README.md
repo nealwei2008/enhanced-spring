@@ -63,11 +63,13 @@ If the project is a SpringMVC project you may want to use `ExceptionHandler`.
 By default response will contains the detail error message. If you want to hide it  just use `errorMessageForNormalRequest="your common error message"`.
 
 Don't forget to introduce the configuration below under SpringBoot:
+
 ```java
 @import(BaseWebMvcConfigurer.class)
 ```
 
 If you want to customize:
+
 ```java
 public class Web extends BaseWebMvcConfigurer {
 }
@@ -111,6 +113,7 @@ Dependencies to add:
 ```
 
 **web.xml**
+
 ```xml
 <filter>
 	<filter-name>SentinelCommonFilter</filter-name>
@@ -123,6 +126,7 @@ Dependencies to add:
 ```
 
 Or through configuration class:
+
 ```java
 @Configuration
 public class FilterConfig {
@@ -142,10 +146,10 @@ public class FilterConfig {
 
 Following properties also need to set to initialize sentinel:
 
-name | memo
---- | ---
-sentinel.zookeeper | sentinel's zookeeper datasource address, if empty `dubbo.registry.url` will be the fallback.
-sentinel.dashboard | dashboard address, like ip:port or domain:port, default to sentinel.dayima.org:80
+| name | memo |
+| --- | --- |
+| sentinel.zookeeper | sentinel's zookeeper datasource address, if empty `dubbo.registry.url` will be the fallback. | 
+| sentinel.dashboard | dashboard address, like ip:port or domain:port, default to sentinel.dayima.org:80 |
 
 ### UrlCleaner/UrlBlockHandler
 When you want to use `UrlCleaner` or `UrlBlockHandler` just inject it into spring and it will be registered automatically.

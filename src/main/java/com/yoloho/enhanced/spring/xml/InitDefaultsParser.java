@@ -149,7 +149,7 @@ public class InitDefaultsParser extends AbstractSimpleBeanDefinitionParser {
         boolean inSpringWeb = false;
         try {
             // 首先检查servlet依赖
-            String servletClassName = "javax.servlet.ServletContext";
+            String servletClassName = "jakarta.servlet.ServletContext";
             Class.forName(servletClassName);
             String className = "org.springframework.web.context.ContextLoader";
             Class<?> clz = Class.forName(className);

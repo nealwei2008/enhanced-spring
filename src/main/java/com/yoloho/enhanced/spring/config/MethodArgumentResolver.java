@@ -43,14 +43,14 @@ public class MethodArgumentResolver implements HandlerMethodArgumentResolver {
     private static final String CLASS_REQUEST_ATTRS = "org.springframework.web.context.request.ServletRequestAttributes";
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    private javax.servlet.http.HttpServletRequest getRequest() {
+    private jakarta.servlet.http.HttpServletRequest getRequest() {
         try {
             Class cls_holder = Class.forName(CLASS_HOLDER);
             Class.forName(CLASS_REQUEST_ATTRS);
             Method method = cls_holder.getMethod("getRequestAttributes");
             Object servletRequestAttributes = method.invoke(cls_holder);
             Method methodRequest = servletRequestAttributes.getClass().getMethod("getRequest");
-            return (javax.servlet.http.HttpServletRequest) methodRequest.invoke(servletRequestAttributes);
+            return (jakarta.servlet.http.HttpServletRequest) methodRequest.invoke(servletRequestAttributes);
         } catch (Exception e) {
         }
         return null;
