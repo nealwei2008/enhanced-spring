@@ -105,7 +105,7 @@ public @interface InitDefaults {
     String errorMessageForJSONRequest() default "";
     
     /**
-     * ".roperties" file list separated by comma to load for placeholders.
+     * ".properties" file list separated by comma to load for placeholders.
      * <p>
      * eg. "conf/system.properties,conf/redis.properties"
      * 
