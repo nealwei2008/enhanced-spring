@@ -1,10 +1,11 @@
 package com.yoloho.enhanced.spring.support;
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.support.config.FastJsonConfig;
+import com.alibaba.fastjson2.support.spring6.http.converter.FastJsonHttpMessageConverter;
+import com.google.common.collect.Lists;
+import com.yoloho.enhanced.spring.config.MethodArgumentResolver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,12 +18,11 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.google.common.collect.Lists;
-import com.yoloho.enhanced.spring.config.MethodArgumentResolver;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Post processor of beans for customized argument resolvers and message converters
@@ -55,8 +55,7 @@ public class CommonBeanPostProcessor implements BeanPostProcessor {
                                 "text/html;charset=UTF-8"
                                 )));
                 FastJsonConfig fastJsonConfig = new FastJsonConfig();
-                fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteDateUseDateFormat,
-                        SerializerFeature.QuoteFieldNames, SerializerFeature.DisableCircularReferenceDetect);
+                fastJsonConfig.setWriterFeatures(JSONWriter.Feature.WriterUtilDateAsMillis);
                 fastJsonConverter.setFastJsonConfig(fastJsonConfig);
             }
             messageConverters.add(fastJsonConverter);

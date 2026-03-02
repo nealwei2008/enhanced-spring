@@ -7,6 +7,7 @@
         <groupId>com.yoloho.enhanced.parent</groupId>
         <artifactId>enhanced-parent</artifactId>
         <version>1.1.0</version>
+        <relativePath/>
     </parent>
     <groupId>com.yoloho.enhanced</groupId>
     <artifactId>enhanced-spring</artifactId>
@@ -44,6 +45,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2-extension-spring6</artifactId>
         </dependency>
         <!-- unit test -->
         <dependency>
@@ -99,6 +104,12 @@
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-transport-common</artifactId>
             <scope>provided</scope>
+            <exclusions>
+            	<exclusion>
+            		<groupId>com.alibaba</groupId>
+            		<artifactId>fastjson</artifactId>
+            	</exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alibaba.csp</groupId>

@@ -1,9 +1,9 @@
 package com.yoloho.enhanced.spring.support;
 
-import javax.annotation.PostConstruct;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.alibaba.fastjson2.JSON;
+import com.yoloho.enhanced.common.support.MsgBean;
+import com.yoloho.enhanced.spring.exception.InvokingException;
+import com.yoloho.enhanced.spring.util.PropertyUtil;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
-import com.alibaba.fastjson.JSON;
-import com.yoloho.enhanced.common.support.MsgBean;
-import com.yoloho.enhanced.spring.exception.InvokingException;
-import com.yoloho.enhanced.spring.util.PropertyUtil;
+import javax.annotation.PostConstruct;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * 默认的未捕获异常处理器，会在json请求中返回标准的json错误
