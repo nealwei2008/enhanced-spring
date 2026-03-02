@@ -120,7 +120,7 @@ public class PropertyUtil {
     }
 
     public static long getLong(String name) {
-        return getLong(name, 0l);
+        return getLong(name, 0L);
     }
 
     public static boolean getBoolean(String name, boolean defaultValue) {

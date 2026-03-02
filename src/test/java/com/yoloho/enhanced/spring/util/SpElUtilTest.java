@@ -15,6 +15,6 @@ public class SpElUtilTest {
         assertEquals("dataSource0", SpElUtil.compute("'dataSource'+(255/256)"));
         assertEquals("dataSource1", SpElUtil.compute("'dataSource'+(256/256)"));
         assertEquals("dataSource2", SpElUtil.compute("'dataSource'+(512/256)"));
-        assertEquals("dataSource2000000", SpElUtil.compute("'dataSource'+(5120000000l/2560)"));
+        assertEquals("dataSource2000000", SpElUtil.compute("'dataSource'+(5120000000L/2560)"));
     }
 }
